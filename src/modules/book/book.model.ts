@@ -21,5 +21,9 @@ bookSchema.method("updateAvailability", function () {
     this.available = this.copies > 0;
 })
 
-const Book = model<IBook, Model<IBook, {}, IBookMethods>>("Book", bookSchema);
+bookSchema.post("save", function () {
+    console.log("Book Added Successfully ✅");
+})
+
+const Book = model<IBook, Model<IBook, Record<string, never>, IBookMethods>>("Book", bookSchema);
 export default Book;

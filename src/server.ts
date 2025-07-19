@@ -8,18 +8,19 @@ import handleNotFound from "./middlewares/handleNotFound";
 
 const app: Application = express()
 
-app.use(cors())
-app.use(express.json())
-app.use(routes)
-app.use(handleNotFound)
-app.use(globalErrorHandler)
-
 app.get("/", (req: Request, res: Response) => {
     res.send({
         success: true,
         message: "This is the home route of library-management-server"
     })
 })
+app.use(cors())
+app.use(express.json())
+app.use(routes)
+app.use(handleNotFound)
+app.use(globalErrorHandler)
+
+
 app.listen(config.port, () => {
     console.log(`✅ Server is running on PORT ${config.port}`);
 })

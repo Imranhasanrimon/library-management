@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
-const handleNotFound = (req: Request, res: Response, next: NextFunction) => {
+const handleNotFound = (req: Request, res: Response) => {
     res.status(404).json({
         message: "API Not Found",
         success: false,
